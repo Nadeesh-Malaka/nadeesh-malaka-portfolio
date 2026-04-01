@@ -109,3 +109,34 @@ section {
   background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px);
   background-size: 30px 30px;
 }
+
+@keyframes marqueeLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeRight {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.marquee-track {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.marquee-left {
+  animation: marqueeLeft var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-right {
+  animation: marqueeRight var(--marquee-duration, 30s) linear infinite;
+}

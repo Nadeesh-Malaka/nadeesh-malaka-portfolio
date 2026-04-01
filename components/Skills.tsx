@@ -1,8 +1,8 @@
 "use client";
 
-import type { ComponentType } from "react";
-import { useRef } from "react";
+import type { ComponentType, CSSProperties } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import {
   SiApachenetbeanside,
   SiBootstrap,
@@ -17,195 +17,156 @@ import {
   SiGithubcopilot,
   SiHtml5,
   SiJira,
+  SiJavascript,
   SiLaravel,
   SiLinux,
   SiMongodb,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
+  SiOpenai,
   SiPhp,
   SiPostgresql,
   SiPostman,
   SiReact,
   SiSelenium,
   SiTailwindcss,
+  SiTypescript,
   SiVercel,
 } from "react-icons/si";
-import { FaBug, FaCode, FaRobot, FaWindows } from "react-icons/fa6";
-import { FiDatabase, FiFolder, FiLayers } from "react-icons/fi";
+import { FaWindows } from "react-icons/fa6";
 import { VscVscode } from "react-icons/vsc";
+
+type IconType = ComponentType<{ className?: string; style?: CSSProperties }>;
 
 interface SkillItem {
   name: string;
-  icon: ComponentType<{ className?: string }>;
+  icon: IconType;
+  color: string;
 }
 
-interface SkillGroup {
-  category: string;
-  icon: ComponentType<{ className?: string }>;
-  skills: SkillItem[];
-}
-
-const skillGroups: SkillGroup[] = [
-  {
-    category: "Frontend",
-    icon: SiReact,
-    skills: [
-      { name: "React.js", icon: SiReact },
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "HTML5", icon: SiHtml5 },
-      { name: "CSS3", icon: SiCss },
-      { name: "Bootstrap", icon: SiBootstrap },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-    ],
-  },
-  {
-    category: "Backend",
-    icon: SiNodedotjs,
-    skills: [
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express.js", icon: SiExpress },
-      { name: "Laravel", icon: SiLaravel },
-      { name: "Django", icon: SiDjango },
-      { name: "FastAPI", icon: SiFastapi },
-      { name: "PHP", icon: SiPhp },
-    ],
-  },
-  {
-    category: "Databases",
-    icon: FiDatabase,
-    skills: [
-      { name: "MySQL", icon: SiMysql },
-      { name: "MongoDB", icon: SiMongodb },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Database Design", icon: FiDatabase },
-    ],
-  },
-  {
-    category: "Tools & DevOps",
-    icon: FiFolder,
-    skills: [
-      { name: "Git", icon: SiGit },
-      { name: "GitHub", icon: SiGithub },
-      { name: "VS Code", icon: VscVscode },
-      { name: "NetBeans", icon: SiApachenetbeanside },
-      { name: "Eclipse", icon: SiEclipseide },
-      { name: "JIRA", icon: SiJira },
-      { name: "Postman", icon: SiPostman },
-      { name: "Vercel", icon: SiVercel },
-    ],
-  },
-  {
-    category: "Testing",
-    icon: FaBug,
-    skills: [
-      { name: "Selenium IDE", icon: SiSelenium },
-      { name: "Bug Documentation", icon: FaBug },
-    ],
-  },
-  {
-    category: "AI Tools",
-    icon: FaRobot,
-    skills: [
-      { name: "Claude AI", icon: SiClaude },
-      { name: "ChatGPT", icon: FaRobot },
-      { name: "GitHub Copilot", icon: SiGithubcopilot },
-      { name: "Cursor AI", icon: FiLayers },
-      { name: "V0.dev", icon: FiLayers },
-      { name: "Bolt.new", icon: FaRobot },
-      { name: "Prompt Engineering", icon: FaCode },
-    ],
-  },
-  {
-    category: "Operating Systems",
-    icon: FaWindows,
-    skills: [
-      { name: "Linux", icon: SiLinux },
-      { name: "Windows", icon: FaWindows },
-    ],
-  },
+const skills: SkillItem[] = [
+  { name: "React.js", icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS3", icon: SiCss, color: "#1572B6" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
+  { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
+  { name: "Django", icon: SiDjango, color: "#092E20" },
+  { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+  { name: "PHP", icon: SiPhp, color: "#777BB4" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
+  { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
+  { name: "VS Code", icon: VscVscode, color: "#007ACC" },
+  { name: "NetBeans", icon: SiApachenetbeanside, color: "#1B6AC6" },
+  { name: "Eclipse", icon: SiEclipseide, color: "#2C2255" },
+  { name: "JIRA", icon: SiJira, color: "#0052CC" },
+  { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+  { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
+  { name: "Selenium IDE", icon: SiSelenium, color: "#43B02A" },
+  { name: "Linux", icon: SiLinux, color: "#FCC624" },
+  { name: "Windows", icon: FaWindows, color: "#00A4EF" },
+  { name: "Claude", icon: SiClaude, color: "#D97757" },
+  { name: "OpenAI", icon: SiOpenai, color: "#10A37F" },
+  { name: "GitHub Copilot", icon: SiGithubcopilot, color: "#00D4FF" },
 ];
 
-function SkillBadge({ item, delay }: { item: SkillItem; delay: number }) {
-  const Icon = item.icon;
+function splitRows(items: SkillItem[]) {
+  const chunk = Math.ceil(items.length / 3);
+  return [
+    items.slice(0, chunk),
+    items.slice(chunk, chunk * 2),
+    items.slice(chunk * 2),
+  ];
+}
+
+function SkillBadge({ skill }: { skill: SkillItem }) {
+  const Icon = skill.icon;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.45, delay, ease: "easeOut" }}
-      whileHover={{ y: -6, scale: 1.08 }}
-      whileTap={{ scale: 0.98 }}
-      className="group relative"
-    >
-      <div className="absolute inset-0 rounded-full bg-cyan-400/0 blur-xl transition-all duration-300 group-hover:bg-cyan-400/25" />
-      <div className="relative flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-200 shadow-[0_10px_28px_rgba(0,0,0,0.24)] backdrop-blur-xl transition-all duration-300 group-hover:border-cyan-300/60 group-hover:bg-slate-950/80 group-hover:text-white group-hover:shadow-[0_14px_36px_rgba(6,182,212,0.28)]">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-cyan-300 transition-all duration-300 group-hover:bg-cyan-400/15 group-hover:text-cyan-200">
-          <Icon className="h-4 w-4" />
-        </span>
-        <span className="whitespace-nowrap tracking-tight">{item.name}</span>
+    <div className="group flex shrink-0 items-center gap-3 rounded-full border border-white/10 bg-slate-900/40 px-4 py-2.5 backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-cyan-300/60 hover:bg-slate-900/70 hover:shadow-[0_0_28px_rgba(34,211,238,0.35)]">
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/8">
+        <Icon className="h-5 w-5" style={{ color: skill.color }} />
+      </span>
+      <span className="whitespace-nowrap text-sm font-medium text-slate-200">
+        {skill.name}
+      </span>
+    </div>
+  );
+}
+
+function MarqueeRow({
+  items,
+  direction,
+  speed,
+  paused,
+}: {
+  items: SkillItem[];
+  direction: "left" | "right";
+  speed: string;
+  paused: boolean;
+}) {
+  return (
+    <div className="marquee-row relative overflow-hidden py-3">
+      <div
+        className="marquee-track flex w-max min-w-max items-center gap-4"
+        style={{
+          animation: `${direction === "left" ? "marqueeLeft" : "marqueeRight"} ${speed} linear infinite`,
+          animationPlayState: paused ? "paused" : "running",
+        }}
+      >
+        {[...items, ...items].map((skill, index) => (
+          <SkillBadge key={`${skill.name}-${index}`} skill={skill} />
+        ))}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Skills() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef<HTMLElement | null>(null);
+  const inView = useInView(ref, { once: true, margin: "-120px" });
+  const [paused, setPaused] = useState(false);
+  const [rowOne, rowTwo, rowThree] = splitRows(skills);
 
   return (
-    <section id="skills" className="relative overflow-hidden py-24">
-      <div className="absolute right-0 top-1/2 h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[120px]" />
+    <section id="skills" ref={ref} className="relative overflow-hidden py-24">
+      <div className="absolute left-0 top-1/3 h-[480px] w-[480px] rounded-full bg-blue-600/5 blur-[120px]" />
+      <div className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-cyan-500/5 blur-[120px]" />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 28 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mx-auto mb-10 max-w-3xl text-center"
         >
           <p className="mb-3 text-sm font-mono text-blue-400">02. What I Know</p>
           <h2 className="font-heading text-4xl font-black text-white md:text-5xl">
             Tech <span className="gradient-text">Stack</span>
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500" />
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((group, groupIdx) => {
-            const GroupIcon = group.icon;
-
-            return (
-              <motion.div
-                key={group.category}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: groupIdx * 0.1 }}
-                className="glass rounded-[1.75rem] p-6 card-hover"
-              >
-                <div className="mb-5 flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-500/20 bg-blue-500/10 text-blue-300 shadow-[0_0_20px_rgba(59,130,246,0.12)]">
-                    <GroupIcon className="h-5 w-5" />
-                  </span>
-                  <h3 className="font-heading text-base font-bold text-white">
-                    {group.category}
-                  </h3>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {group.skills.map((item, skillIdx) => (
-                    <SkillBadge
-                      key={item.name}
-                      item={item}
-                      delay={groupIdx * 0.08 + skillIdx * 0.05}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          className="space-y-2"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <MarqueeRow items={rowOne} direction="right" speed="28s" paused={paused} />
+          <MarqueeRow items={rowTwo} direction="left" speed="32s" paused={paused} />
+          <MarqueeRow items={rowThree} direction="right" speed="30s" paused={paused} />
+        </motion.div>
       </div>
     </section>
   );
