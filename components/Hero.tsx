@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { FiGithub, FiLinkedin, FiDownload, FiMail, FiArrowRight } from "react-icons/fi";
 
 const typingPhrases = [
@@ -43,12 +43,12 @@ function TypingEffect() {
 }
 
 export default function Hero() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.15 } },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
@@ -209,7 +209,7 @@ export default function Hero() {
               {/* Profile image container */}
               <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-[#0a0f1e] glow-blue">
                 <Image
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt="Nadeesh Malaka Chathuranga"
                   fill
                   className="object-cover object-top"
