@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { FiGithub, FiLinkedin, FiDownload, FiMail, FiArrowRight } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiDownload, FiMail, FiArrowRight, FiYoutube } from "react-icons/fi";
 
 const typingPhrases = [
-  "Associate Software Engineer",
+  "Software Engineer",
   "Full Stack Developer",
-  "React & Node.js Developer",
+  "QA Enthusiast",
+  "Tech Blogger",
+  "Content Creator",
+
 ];
 
 function TypingEffect() {
@@ -59,20 +62,20 @@ export default function Hero() {
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 dot-pattern opacity-40" />
+      <div className="absolute inset-0 dot-pattern opacity-40 pointer-events-none" />
 
       {/* Gradient orbs */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] orb" />
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] orb pointer-events-none" />
       <div
-        className="absolute bottom-20 right-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-[100px] orb"
+        className="absolute bottom-20 right-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-[100px] orb pointer-events-none"
         style={{ animationDelay: "3s" }}
       />
       <div
-        className="absolute top-1/2 left-10 w-64 h-64 bg-purple-600/10 rounded-full blur-[80px] orb"
+        className="absolute top-1/2 left-10 w-64 h-64 bg-purple-600/10 rounded-full blur-[80px] orb pointer-events-none"
         style={{ animationDelay: "6s" }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 w-full py-16">
+      <div className="max-w-6xl mx-auto px-6 w-full py-16 relative z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left content */}
           <motion.div
@@ -127,10 +130,6 @@ export default function Hero() {
             >
               <motion.a
                 href="#projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
@@ -141,6 +140,8 @@ export default function Hero() {
               <motion.a
                 href="/Nadeesh Malaka CV.pdf"
                 download
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-blue-600/50 hover:border-blue-500 text-blue-400 hover:text-blue-300 font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
@@ -150,10 +151,6 @@ export default function Hero() {
 
               <motion.a
                 href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/20 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5"
@@ -171,11 +168,12 @@ export default function Hero() {
                 { href: "https://github.com/Nadeesh-Malaka", icon: FiGithub, label: "GitHub" },
                 { href: "https://www.linkedin.com/in/nadeesh-chathuranga", icon: FiLinkedin, label: "LinkedIn" },
                 { href: "mailto:nadeeshmalaka50@gmail.com", icon: FiMail, label: "Email" },
+                { href: "https://www.youtube.com/@NadeeshCreation", icon: FiYoutube, label: "YouTube" },
               ].map(({ href, icon: Icon, label }) => (
                 <motion.a
                   key={label}
                   href={href}
-                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
                   whileHover={{ scale: 1.2, y: -2 }}
@@ -239,7 +237,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
         <span className="text-xs text-slate-500 font-mono">scroll</span>
         <motion.div
