@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+function AnimatedCounter({ target, suffix = "" }: { target: number | string; suffix?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -28,10 +28,10 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const stats = [
-  { label: "GPA", value: 3.9, suffix: "" },
   { label: "Years Experience", value: 1, suffix: "+" },
-  { label: "Projects Built", value: 5, suffix: "+" },
-  { label: "Roles Held", value: 2, suffix: "" },
+  { label: "Projects Built", value: 15, suffix: "+" },
+  { label: "Industry Roles", value: 2, suffix: "" },
+  // { label: "Honors Candidate", value: "1st Class", suffix: "" },
 ];
 
 const extracurricular = [
@@ -58,7 +58,6 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-blue-400 text-sm mb-3">01. Who Am I</p>
           <h2 className="font-heading text-4xl md:text-5xl font-black text-white">
             About <span className="gradient-text">Me</span>
           </h2>
@@ -77,13 +76,13 @@ export default function About() {
               <p className="text-slate-300 leading-relaxed text-base">
                 Final-year ICT undergraduate at{" "}
                 <span className="text-blue-400 font-semibold">Uva Wellassa University</span>{" "}
-                with a{" "}
-                <span className="text-cyan-400 font-bold">3.9 GPA</span>,
-                specializing in Software Technology. Associate Software
-                Engineer at{" "}
-                <span className="text-blue-400 font-semibold">Apps Technologies Pvt Ltd</span>,
-                building and maintaining full-stack web applications, leading
-                code reviews, and coordinating development workflows.
+                specializing in Software Technology (Current{" "}
+                GPA: 3.9). With solid
+                industry experience as an{" "}
+                <span className="text-blue-400 font-semibold">Associate Software Engineer</span>,
+                I have built and maintained full-stack web applications,
+                participated in code reviews, and coordinated development
+                workflows.
               </p>
               <p className="text-slate-400 leading-relaxed text-base mt-4">
                 Passionate about clean code, scalable architecture, and

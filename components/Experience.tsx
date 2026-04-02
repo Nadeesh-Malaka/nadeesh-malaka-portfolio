@@ -52,7 +52,6 @@ export default function Experience() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-blue-400 text-sm mb-3">04. Work History</p>
           <h2 className="font-heading text-4xl md:text-5xl font-black text-white">
             Work <span className="gradient-text">Experience</span>
           </h2>

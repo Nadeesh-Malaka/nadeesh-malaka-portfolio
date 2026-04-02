@@ -149,7 +149,6 @@ export default function Skills() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mx-auto mb-10 max-w-3xl text-center"
         >
-          <p className="mb-3 text-sm font-mono text-blue-400">02. What I Know</p>
           <h2 className="font-heading text-4xl font-black text-white md:text-5xl">
             Tech <span className="gradient-text">Stack</span>
           </h2>

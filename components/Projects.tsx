@@ -122,7 +122,7 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-blue-400 text-sm mb-3">03. What I&apos;ve Built</p>
+        
           <h2 className="font-heading text-4xl md:text-5xl font-black text-white">
             Featured <span className="gradient-text">Projects</span>
           </h2>
