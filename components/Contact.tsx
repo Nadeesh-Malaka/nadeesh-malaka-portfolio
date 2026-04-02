@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiSend, FiLoader, FiCheckCircle, FiAlertCircle } from "react-icons/fi";
 import { SiMedium } from "react-icons/si";
@@ -48,7 +48,9 @@ export default function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     if (!name.trim() || !email.trim() || !message.trim()) {
       setErrorMsg("Please fill in all fields.");
       setStatus("error");
@@ -72,18 +74,21 @@ export default function Contact() {
 
       const data = await res.json();
 
-      if (data.success) {
+      if (res.ok && data.success) {
         setStatus("success");
         setName("");
         setEmail("");
         setMessage("");
+        setTimeout(() => setStatus("idle"), 3000);
       } else {
-        setErrorMsg("Something went wrong. Please try again.");
+        setErrorMsg(data.message || "Something went wrong. Please try again.");
         setStatus("error");
+        setTimeout(() => setStatus("idle"), 4000);
       }
     } catch {
       setErrorMsg("Network error. Please check your connection.");
       setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
     }
   };
 
@@ -92,10 +97,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/8 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/8 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -103,19 +107,17 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="font-mono text-blue-400 text-sm mb-3">06. Get In Touch</p>
           <h2 className="font-heading text-4xl md:text-5xl font-black text-white">
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
           <div className="mt-4 w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full" />
           <p className="text-slate-400 mt-6 max-w-lg mx-auto">
             I am open to full-time roles, freelance projects, and collaborations.
-            Feel free to reach out — I&apos;d love to talk!
+            Feel free to reach out I&apos;d love to talk!
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          {/* Contact link cards */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -149,7 +151,6 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          {/* Contact form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -160,7 +161,7 @@ export default function Contact() {
               Send a Message
             </h3>
 
-            <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-medium text-slate-400 mb-1.5 font-mono">
                   Your Name
@@ -169,9 +170,14 @@ export default function Contact() {
                   type="text"
                   placeholder="John Doe"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    if (status !== "loading") setStatus("idle");
+                  }}
                   className={inputClass}
                   disabled={status === "loading"}
+                  name="name"
+                  autoComplete="name"
                 />
               </div>
 
@@ -183,9 +189,14 @@ export default function Contact() {
                   type="email"
                   placeholder="john@example.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status !== "loading") setStatus("idle");
+                  }}
                   className={inputClass}
                   disabled={status === "loading"}
+                  name="email"
+                  autoComplete="email"
                 />
               </div>
 
@@ -196,14 +207,28 @@ export default function Contact() {
                 <textarea
                   placeholder="Tell me about your project or opportunity..."
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    if (status !== "loading") setStatus("idle");
+                  }}
                   rows={5}
                   className={`${inputClass} resize-none`}
                   disabled={status === "loading"}
+                  name="message"
                 />
               </div>
 
-              {/* Status messages */}
+              {/* {status === "loading" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm"
+                >
+                  <FiLoader size={16} className="animate-spin" />
+                  Sending your message...
+                </motion.div>
+              )} */}
+
               {status === "success" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -211,7 +236,7 @@ export default function Contact() {
                   className="flex items-center gap-2 px-4 py-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm"
                 >
                   <FiCheckCircle size={16} />
-                  Message sent! I&apos;ll get back to you soon.
+                  Message sent successfully!
                 </motion.div>
               )}
 
@@ -227,7 +252,7 @@ export default function Contact() {
               )}
 
               <motion.button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={status === "loading"}
                 whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -245,7 +270,7 @@ export default function Contact() {
                   </>
                 )}
               </motion.button>
-            </div>
+            </form>
           </motion.div>
         </div>
       </div>
