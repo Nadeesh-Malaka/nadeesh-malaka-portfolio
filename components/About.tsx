@@ -92,7 +92,7 @@ export default function About() {
             </div>
 
             {/* Extracurricular */}
-            <div className="glass rounded-2xl p-8">
+            <div className="glass rounded-2xl p-8 card-hover">
               <h3 className="font-heading text-lg font-bold text-white mb-4 flex items-center gap-2">
                 <span className="text-blue-400">✦</span> Community & Clubs
               </h3>
@@ -136,15 +136,16 @@ export default function About() {
             </div>
 
             {/* Contact info */}
-            <div className="glass rounded-2xl p-8 space-y-4">
+            <div className="glass rounded-2xl p-8 space-y-4 card-hover">
               <h3 className="font-heading text-lg font-bold text-white mb-2">
                 Quick Info
               </h3>
               {[
                 { label: "Location", value: "Colombo, Sri Lanka 🇱🇰" },
                 { label: "University", value: "Uva Wellassa University" },
-                { label: "Degree", value: "B.ICT (Hons) — Software Technology" },
+                { label: "Degree", value: "B.ICT (Hons) : Software Technology" },
                 { label: "Email", value: "nadeeshmalaka50@gmail.com" },
+                { label: "Phone", value: "+94 77 490 2773" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-3 text-sm">
                   <span className="text-blue-400 shrink-0 w-24 font-medium">{item.label}</span>

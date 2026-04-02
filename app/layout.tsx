@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     "Personal portfolio of Nadeesh Malaka Chathuranga — Associate Software Engineer & Full Stack Developer based in Colombo, Sri Lanka. Specializing in React, Node.js, and modern web technologies.",
   keywords: [
     "Nadeesh Malaka",
+    "Nadeesh Malaka Chathuranga",
     "Full Stack Developer",
     "React Developer",
     "Node.js",

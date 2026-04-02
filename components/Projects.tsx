@@ -17,43 +17,41 @@ const projects: Project[] = [
     description:
       "A web platform for seamless skill exchange with intelligent user matching. Features real-time chat, REST APIs, and secure authentication.",
     stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    github: "https://github.com/Nadeesh-Malaka",
+    github: "https://github.com/Nadeesh-Malaka/SkillSwap",
   },
   {
     title: "CineStream Movie Discovery Platform",
     description:
       "A modern movie streaming UI and discovery app. Features smart search, paginated results, trailers, and personal watchlists using local storage.",
     stack: ["React.js", "Tailwind CSS", "OMDb API"],
-    github: "https://github.com/Nadeesh-Malaka",
+    github: "https://github.com/Nadeesh-Malaka/CineStream-movie-app",
   },
   {
     title: "QR Based Bus Ticket Reservation System",
     description:
       "A digital paperless bus ticket booking system. Generates verifiable QR code E-Tickets for passengers and includes a comprehensive Admin portal.",
     stack: ["React.js", "PHP", "MySQL"],
-    github: "https://github.com/Nadeesh-Malaka",
+    github: "https://github.com/Nadeesh-Malaka/qr-bus-ticket-system",
   },
   {
     title: "Knowledge Sharing Platform",
     description:
       "A knowledge-exchange platform with discussion forums, Q&A sessions, and resource libraries for diverse user groups.",
     stack: ["HTML", "CSS", "Laravel", "MySQL"],
-    github: "https://github.com/Nadeesh-Malaka",
+    github: "https://github.com/Nadeesh-Malaka/Knowledge_Sharing_platform",
+  },
+{
+    title: "Library Management System",
+    description: "A comprehensive web application designed to streamline library operations. Features user authentication, book cataloging, borrowing history tracking, and secure admin controls.",
+    stack: ["Java", "JSP", "MySQL", "HTML", "JavaScript"],
+    github: "https://github.com/Nadeesh-Malaka/Library_Management_System",
   },
   {
-    title: "Master Education Web Platform",
-    description:
-      "An education platform featuring lectures, quizzes, assignments, and discussion forums to enhance the learning experience.",
-    stack: ["HTML", "CSS", "PHP", "MySQL"],
-    github: "https://github.com/Nadeesh-Malaka",
-  },
-  {
-    title: "Python YouTube Downloader",
-    description:
-      "A powerful YouTube video and audio downloader with both CLI and a Desktop GUI interface. Supports full playlist downloads and custom format selection.",
-    stack: ["Python", "yt-dlp"],
-    github: "https://github.com/Nadeesh-Malaka",
-  },
+    title: "CalMaster App",
+    description: "A sleek, all-in-one mobile calculator application. Features multiple tools including a Simple Calculator, BMI Calculator, and GPA Calculator for quick and accurate calculations.",
+    stack: ["Flutter", "Dart"],
+    github: "https://github.com/Nadeesh-Malaka/CalMaster_App",
+  }
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
