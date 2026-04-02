@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiHeart } from "react-icons/fi";
 import { SiMedium } from "react-icons/si";
@@ -12,6 +13,12 @@ const socials = [
 ];
 
 export default function Footer() {
+  const [year, setYear] = useState("");
+
+  useEffect(() => {
+    setYear(String(new Date().getFullYear()));
+  }, []);
+
   return (
     <footer className="relative py-10 border-t border-white/[0.06] bg-[#0a0f1e]">
       <div className="max-w-6xl mx-auto px-6">
@@ -46,7 +53,7 @@ export default function Footer() {
 
         <div className="mt-6 text-center">
           <p className="text-slate-600 text-xs font-mono">
-            © {new Date().getFullYear()} Nadeesh Malaka Chathuranga · All Rights Reserved
+            © {year} Nadeesh Malaka Chathuranga · All Rights Reserved
           </p>
         </div>
       </div>

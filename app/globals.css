@@ -3,6 +3,9 @@
 :root {
   --background: #0a0f1e;
   --foreground: #e2e8f0;
+  --font-inter: ui-sans-serif, system-ui, sans-serif;
+  --font-space-grotesk: ui-sans-serif, system-ui, sans-serif;
+  --font-jetbrains-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 html {
