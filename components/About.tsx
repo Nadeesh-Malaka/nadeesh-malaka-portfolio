@@ -120,7 +120,7 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="space-y-8"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 md:gap-5">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -147,9 +147,9 @@ export default function About() {
                 { label: "Email", value: "nadeeshmalaka50@gmail.com" },
                 { label: "Phone", value: "+94 77 490 2773" },
               ].map((item) => (
-                <div key={item.label} className="flex gap-3 text-sm">
+                <div key={item.label} className="flex flex-col gap-1 text-sm md:grid md:grid-cols-[6rem_minmax(0,1fr)] md:items-start md:gap-3">
                   <span className="text-blue-400 shrink-0 w-24 font-medium">{item.label}</span>
-                  <span className="text-slate-300">{item.value}</span>
+                  <span className="text-slate-300 break-words">{item.value}</span>
                 </div>
               ))}
             </div>

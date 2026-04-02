@@ -126,13 +126,13 @@ export default function Hero() {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10"
+              className="flex w-full flex-col gap-4 mb-10 sm:w-auto sm:flex-row sm:justify-center lg:justify-start"
             >
               <motion.a
                 href="#projects"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
               >
                 View Projects <FiArrowRight size={16} />
               </motion.a>
@@ -144,7 +144,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-6 py-3 border border-blue-600/50 hover:border-blue-500 text-blue-400 hover:text-blue-300 font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 border border-blue-600/50 hover:border-blue-500 text-blue-400 hover:text-blue-300 font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
               >
                 <FiDownload size={16} /> Download CV
               </motion.a>
@@ -153,7 +153,7 @@ export default function Hero() {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-white/20 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 border border-white/10 hover:border-white/20 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5"
               >
                 <FiMail size={16} /> Contact Me
               </motion.a>
@@ -237,7 +237,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 pointer-events-none"
       >
         <span className="text-xs text-slate-500 font-mono">scroll</span>
         <motion.div

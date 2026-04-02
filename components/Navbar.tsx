@@ -38,9 +38,17 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (href: string) => {
-    setMenuOpen(false);
     const id = href.substring(1);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    setMenuOpen(false);
+
+    window.setTimeout(() => {
+      const navOffset = 88;
+      const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 120);
   };
 
   return (

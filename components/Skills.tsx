@@ -138,7 +138,7 @@ export default function Skills() {
   const [rowOne, rowTwo, rowThree] = splitRows(skills);
 
   return (
-    <section id="skills" ref={ref} className="relative overflow-hidden py-24">
+    <section id="skills" ref={ref} className="relative overflow-hidden py-24 pb-32">
       <div className="absolute left-0 top-1/3 h-[480px] w-[480px] rounded-full bg-blue-600/5 blur-[120px]" />
       <div className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-cyan-500/5 blur-[120px]" />
 
