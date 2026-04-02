@@ -48,7 +48,10 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <body className="bg-[#0a0f1e] text-slate-100 antialiased overflow-x-hidden">
+      <body
+        suppressHydrationWarning
+        className="bg-[#0a0f1e] text-slate-100 antialiased overflow-x-hidden"
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>

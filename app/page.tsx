@@ -26,7 +26,7 @@ export default function Home() {
       <LoadingScreen isLoading={loading} />
 
       {!loading && (
-        <main className="bg-[#0a0f1e] min-h-screen">
+        <main suppressHydrationWarning className="bg-[#0a0f1e] min-h-screen">
           <Navbar />
           <Hero />
           <About />
