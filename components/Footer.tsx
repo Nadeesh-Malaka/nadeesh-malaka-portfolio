@@ -13,7 +13,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative py-10 border-t border-white/[0.06]">
+    <footer className="relative py-10 border-t border-white/[0.06] bg-[#0a0f1e]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Logo */}
@@ -39,8 +39,8 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-slate-500 text-xs font-mono flex items-center gap-1">
-            Built with <FiHeart size={12} className="text-blue-500" /> using Next.js &amp; Tailwind
+          <p className="text-slate-500 text-xs font-mono flex items-center gap-1 text-center sm:text-left">
+            Designed &amp; Built by Nadeesh Malaka using Next.js, Tailwind CSS &amp; Framer Motion.
           </p>
         </div>
 

@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Nadeesh Malaka | Full Stack Developer",
   description:
-    "Personal portfolio of Nadeesh Malaka Chathuranga — Associate Software Engineer & Full Stack Developer based in Colombo, Sri Lanka. Specializing in React, Node.js, and modern web technologies.",
+    "Personal portfolio of Nadeesh Malaka, a Full Stack Developer specializing in MERN ,Laravel, and modern web technologies.",
   keywords: [
     "Nadeesh Malaka",
     "Nadeesh Malaka Chathuranga",
@@ -42,14 +42,18 @@ export const metadata: Metadata = {
     type: "website",
     title: "Nadeesh Malaka | Full Stack Developer",
     description:
-      "Associate Software Engineer & Full Stack Developer — building scalable web applications with modern technologies.",
+      "Personal portfolio of Nadeesh Malaka, a Full Stack Developer specializing in MERN ,Laravel, and modern web technologies.",
     siteName: "Nadeesh Malaka Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nadeesh Malaka | Full Stack Developer",
     description:
-      "Associate Software Engineer & Full Stack Developer — building scalable web applications with modern technologies.",
+      "Personal portfolio of Nadeesh Malaka, a Full Stack Developer specializing in MERN ,Laravel, and modern web technologies.",
+  },
+  icons: {
+    // Replace the default public/favicon.ico with your NM logo favicon.
+    icon: "/favicon.ico",
   },
 };
 
