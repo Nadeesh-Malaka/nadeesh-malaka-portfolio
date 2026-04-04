@@ -207,7 +207,7 @@ export default function Hero() {
               {/* Profile image container */}
               <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-[#0a0f1e] glow-blue">
                 <Image
-                  src="/profile.jpg"
+                  src="/profile.png"
                   alt="Nadeesh Malaka Chathuranga"
                   fill
                   className="object-cover object-top"

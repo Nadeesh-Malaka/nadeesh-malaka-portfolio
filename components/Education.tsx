@@ -63,7 +63,7 @@ export default function Education() {
               </div>
 
               <p className="text-white font-semibold mb-1">
-                Bachelor of ICT (Hons) : Specialization: Software Technology
+                Bachelor of ICT (Hons) : Specialization in Software Technology
               </p>
               <p className="text-slate-400 text-sm">2022 – 2026 (Expected)</p>
             </div>
