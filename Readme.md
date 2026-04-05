@@ -2,7 +2,8 @@
 
 Personal portfolio website built with Next.js, Tailwind CSS, and Framer Motion.
 
-![alt text](image.png)
+<img width="1366" height="726" alt="image" src="https://github.com/user-attachments/assets/b8f1b5ee-8609-4db6-af6f-cd6471e25ca1" />
+
 
 ## Overview
 
