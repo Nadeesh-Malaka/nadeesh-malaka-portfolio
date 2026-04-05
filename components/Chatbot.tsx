@@ -9,6 +9,13 @@ type Message = {
   text: string;
 };
 
+const SUGGESTION_CHIPS = [
+  "Who is Nadeesh?",
+  "What are your skills?",
+  "Tell me about your projects",
+  "How can I contact you?",
+];
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -91,6 +98,55 @@ export default function Chatbot() {
 
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") sendMessage();
+  };
+
+  const handleSuggestionClick = async (suggestionText: string) => {
+    if (loading) return;
+
+    setHasInteracted(true);
+    setShowTooltip(false);
+
+    const userMsg: Message = { role: "user", text: suggestionText };
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: suggestionText }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(
+          typeof data?.error === "string"
+            ? data.error
+            : "I could not process that request right now."
+        );
+      }
+
+      const botMsg: Message = {
+        role: "bot",
+        text: data.reply || "Sorry, I couldn't get a response. Try again!",
+      };
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "bot",
+          text:
+            error instanceof Error
+              ? error.message
+              : "Something went wrong. Please try again later.",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -181,6 +237,24 @@ export default function Chatbot() {
 
               <div ref={bottomRef} />
             </div>
+
+            {/* Suggestion Chips */}
+            {messages.length === 1 && (
+              <div className="px-3 py-2 border-t border-white/10 bg-white/5 flex gap-2 items-center overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                {SUGGESTION_CHIPS.map((chip, idx) => (
+                  <motion.button
+                    key={idx}
+                    onClick={() => handleSuggestionClick(chip)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    disabled={loading}
+                    className="flex-shrink-0 bg-white/5 hover:bg-white/10 disabled:opacity-50 border border-white/20 rounded-full px-3 py-1.5 text-xs text-blue-100 transition-colors"
+                  >
+                    {chip}
+                  </motion.button>
+                ))}
+              </div>
+            )}
 
             {/* Input */}
             <div className="px-3 py-3 border-t border-white/10 bg-white/5 flex gap-2 items-center">
