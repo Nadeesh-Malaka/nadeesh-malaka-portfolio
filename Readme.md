@@ -12,6 +12,7 @@ This project showcases Nadeesh Malaka as a Full Stack Developer with a modern, d
 ## Features
 
 - Responsive design for desktop, tablet, and mobile
+- Custom AI Chatbot (Nadeesh-Bot) integrated for interactive visitor engagement
 - Animated hero section with social links and CTA buttons
 - Interactive skills marquee with hover pause
 - Projects section with Show More and GitHub links
@@ -27,6 +28,7 @@ This project showcases Nadeesh Malaka as a Full Stack Developer with a modern, d
 - TypeScript
 - Tailwind CSS 4
 - Framer Motion
+- Google Generative AI (Gemini API)
 - React Icons
 - Lucide React
 
@@ -90,6 +92,10 @@ If you want to use your own form key, update the access key value in `components
 
 deploy on Vercel :https://nadeesh-malaka-portfolio.vercel.app/
 
-## License
+## Copyright and License
 
-This project is for personal portfolio use.
+The codebase is licensed under the MIT License.
+
+You are free to use this code as an inspiration or a starting point for your own portfolio. However, you must strictly not use my personal information, photographs, projects, or my exact resume (CV). Please change the design colors, logos, and content to reflect your own identity and professional experience.
+
+Copyright (c) 2026 Nadeesh Malaka Chathuranga
