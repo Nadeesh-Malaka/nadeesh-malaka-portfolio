@@ -11,7 +11,7 @@ const experiences = [
       {
         title: "Associate Software Engineer",
         type: "Remote",
-        period: "Sep 2025 – Present",
+        period: "Sep 2025 – April 2026",
         bullets: [
           "Coordinate development timelines, task assignments, and team communications",
           "Manage code review processes for pull requests, maintaining code quality standards",
