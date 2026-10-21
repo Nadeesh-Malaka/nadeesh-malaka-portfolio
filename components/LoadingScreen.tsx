@@ -56,7 +56,7 @@ export default function LoadingScreen({ isLoading }: LoadingScreenProps) {
                 Nadeesh Malaka
               </p>
               <p className="font-mono text-sm text-blue-400 mt-1">
-                Full Stack Developer
+                Software Engineer
               </p>
             </motion.div>
 

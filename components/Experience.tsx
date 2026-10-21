@@ -13,10 +13,11 @@ const experiences = [
         type: "Remote",
         period: "Sep 2025 – April 2026",
         bullets: [
-          "Coordinate development timelines, task assignments, and team communications",
+          "Developed and maintained Laravel web applications using MVC architecture and clean coding practices.",
+
           "Manage code review processes for pull requests, maintaining code quality standards",
-          "Develop and maintain full-stack web applications with best practices in software architecture",
-          "Implement testing strategies and comprehensive documentation",
+          "Supported AWS deployments through production builds, database migrations, and SSH server configuration",
+          "Contributed to QA testing, debugging, technical documentation, and project delivery.",
         ],
       },
       {

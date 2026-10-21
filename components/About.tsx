@@ -31,7 +31,7 @@ const stats = [
   { label: "Years Experience", value: 1, suffix: "+" },
   { label: "Projects Built", value: 15, suffix: "+" },
   { label: "Industry Roles", value: 2, suffix: "" },
-  // { label: "Honors Candidate", value: "1st Class", suffix: "" },
+  { label: "Cloud Platforms", value: 2, suffix: "", highlight: "AWS & GCP" },
 ];
 
 const extracurricular = [
@@ -74,20 +74,10 @@ export default function About() {
           >
             <div className="glass rounded-2xl p-8 card-hover">
               <p className="text-slate-300 leading-relaxed text-base">
-                Final-year ICT undergraduate at{" "}
-                <span className="text-blue-400 font-semibold">Uva Wellassa University</span>{" "}
-                specializing in Software Technology (Current{" "}
-                GPA: 3.9). With solid
-                industry experience as an{" "}
-                <span className="text-blue-400 font-semibold">Associate Software Engineer</span>,
-                I have built and maintained full-stack web applications,
-                participated in code reviews, and coordinated development
-                workflows.
+                I am a <span className="text-blue-400 font-semibold">Software Engineer</span> with professional experience in full-stack development, databases, and cloud deployment. I have worked with <span className="text-purple-300 font-medium">React.js, Next.js, Node.js, Laravel, and FastAPI</span>, building and maintaining real-world applications, optimizing database queries, and contributing to code reviews and testing.
               </p>
-              <p className="text-slate-400 leading-relaxed text-base mt-4">
-                Passionate about clean code, scalable architecture, and
-                continuous learning. I enjoy turning complex problems into
-                elegant, user-friendly solutions.
+              <p className="text-slate-300 leading-relaxed text-base mt-4">
+                Beyond web development, I enjoy exploring <span className="text-purple-300 font-medium">AI, machine learning, and cloud technologies</span> to solve practical problems. I completed all academic requirements for my <span className="text-blue-400 font-semibold">BICT (Hons) degree</span> in Information and Communication Technology, specializing in Software Technology, at <span className="text-blue-400 font-semibold">Uva Wellassa University of Sri Lanka</span>.
               </p>
             </div>
 
@@ -103,9 +93,9 @@ export default function About() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                    className="flex items-start gap-3 text-slate-400 text-sm"
+                    className="flex items-start gap-3 text-slate-300 text-sm"
                   >
-                    <span className="text-blue-500 mt-1 shrink-0">›</span>
+                    <span className="text-blue-400 mt-1 shrink-0">›</span>
                     {item}
                   </motion.li>
                 ))}
@@ -127,10 +117,15 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
-                  className="glass rounded-2xl p-6 text-center card-hover group"
+                  className="glass rounded-2xl p-6 text-center card-hover group flex flex-col items-center justify-center"
                 >
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                  <p className="text-slate-400 text-sm mt-2 font-medium">{stat.label}</p>
+                  <p className="text-slate-300 text-sm mt-2 font-medium">{stat.label}</p>
+                  {stat.highlight && (
+                    <span className="text-xs font-mono text-cyan-400 mt-1.5 font-semibold">
+                      {stat.highlight}
+                    </span>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -141,15 +136,16 @@ export default function About() {
                 Quick Info
               </h3>
               {[
-                { label: "Location", value: "Colombo, Sri Lanka 🇱🇰" },
-                { label: "University", value: "Uva Wellassa University" },
-                { label: "Degree", value: "B.ICT (Hons) : Software Technology" },
+                { label: "Location", value: "Piliyandala, Colombo District, Sri Lanka 🇱🇰" },
+                { label: "University", value: "Uva Wellassa University of Sri Lanka" },
+                { label: "Degree", value: "B.ICT (Hons) in Software Technology" },
                 { label: "Email", value: "nadeeshmalaka50@gmail.com" },
                 { label: "Phone", value: "+94 77 490 2773" },
+                { label: "Experience", value: "1 Years" }
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1 text-sm md:grid md:grid-cols-[6rem_minmax(0,1fr)] md:items-start md:gap-3">
                   <span className="text-blue-400 shrink-0 w-24 font-medium">{item.label}</span>
-                  <span className="text-slate-300 break-words">{item.value}</span>
+                  <span className="text-slate-200 break-words">{item.value}</span>
                 </div>
               ))}
             </div>

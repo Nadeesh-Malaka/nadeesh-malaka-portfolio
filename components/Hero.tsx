@@ -8,10 +8,8 @@ import { FiGithub, FiLinkedin, FiDownload, FiMail, FiArrowRight, FiYoutube } fro
 const typingPhrases = [
   "Software Engineer",
   "Full Stack Developer",
-  "QA Enthusiast",
-  "Tech Blogger",
-  "Content Creator",
-
+  "AI & Cloud Enthusiast",
+  "Tech Creator",
 ];
 
 function TypingEffect() {
@@ -116,11 +114,9 @@ export default function Hero() {
               variants={itemVariants}
               className="text-slate-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
-              Building scalable web applications with modern technologies.
+              Building scalable full-stack web applications and AI-powered solutions using modern technologies.
               <br />
-              <span className="text-slate-500 text-sm font-mono">
-                Colombo, Sri Lanka 🇱🇰
-              </span>
+              <span className="text-slate-400 text-sm font-mono mt-2 inline-block">📍 Colombo, Sri Lanka 🇱🇰</span>
             </motion.p>
 
             {/* CTA Buttons */}
@@ -208,7 +204,7 @@ export default function Hero() {
               <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-[#0a0f1e] glow-blue">
                 <Image
                   src="/profile.webp"
-                  alt="Nadeesh Malaka Chathuranga"
+                  alt="Nadeesh Malaka Chathuranga - Software Engineer"
                   fill
                   className="object-cover object-top"
                   priority

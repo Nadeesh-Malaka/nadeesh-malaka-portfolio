@@ -9,12 +9,14 @@ import {
   SiClaude,
   SiCss,
   SiDjango,
+  SiDocker,
   SiEclipseide,
   SiExpress,
   SiFastapi,
   SiGit,
   SiGithub,
   SiGithubcopilot,
+  SiGooglecloud,
   SiHtml5,
   SiJira,
   SiJavascript,
@@ -28,13 +30,15 @@ import {
   SiPhp,
   SiPostgresql,
   SiPostman,
+  SiPython,
   SiReact,
+  SiScikitlearn,
   SiSelenium,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
-import { FaWindows } from "react-icons/fa6";
+import { FaAws, FaDna, FaJava, FaTree, FaWindows } from "react-icons/fa6";
 import { VscVscode } from "react-icons/vsc";
 
 type IconType = ComponentType<{ className?: string; style?: CSSProperties }>;
@@ -50,16 +54,24 @@ const skills: SkillItem[] = [
   { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS3", icon: SiCss, color: "#1572B6" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-  { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "FastAPI", icon: SiFastapi, color: "#009688" },
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
   { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
   { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
-  { name: "Django", icon: SiDjango, color: "#092E20" },
-  { name: "FastAPI", icon: SiFastapi, color: "#009688" },
   { name: "PHP", icon: SiPhp, color: "#777BB4" },
+  { name: "JSP", icon: FaJava, color: "#E76F00" },
+  { name: "Django", icon: SiDjango, color: "#092E20" },
+  { name: "AWS", icon: FaAws, color: "#FF9900" },
+  { name: "GCP", icon: SiGooglecloud, color: "#4285F4" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
+  { name: "Genetic Algorithms", icon: FaDna, color: "#06B6D4" },
+  { name: "Random Forest", icon: FaTree, color: "#10B981" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
+  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS3", icon: SiCss, color: "#1572B6" },
   { name: "MySQL", icon: SiMysql, color: "#4479A1" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
@@ -138,7 +150,7 @@ export default function Skills() {
   const [rowOne, rowTwo, rowThree] = splitRows(skills);
 
   return (
-    <section id="skills" ref={ref} className="relative overflow-hidden py-24 pb-32">
+    <section id="skills" ref={ref} aria-label="Technologies and Skills" className="relative overflow-hidden py-24 pb-32">
       <div className="absolute left-0 top-1/3 h-[480px] w-[480px] rounded-full bg-blue-600/5 blur-[120px]" />
       <div className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-cyan-500/5 blur-[120px]" />
 
@@ -150,8 +162,9 @@ export default function Skills() {
           className="mx-auto mb-10 max-w-3xl text-center"
         >
           <h2 className="font-heading text-4xl font-black text-white md:text-5xl">
-            Tech <span className="gradient-text">Stack</span>
+            Tech <span className="gradient-text">Stack &amp; Skills</span>
           </h2>
+          <div className="mt-4 w-16 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full" />
         </motion.div>
 
         <motion.div
@@ -161,6 +174,8 @@ export default function Skills() {
           className="space-y-2"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
         >
           <MarqueeRow items={rowOne} direction="right" speed="28s" paused={paused} />
           <MarqueeRow items={rowTwo} direction="left" speed="32s" paused={paused} />

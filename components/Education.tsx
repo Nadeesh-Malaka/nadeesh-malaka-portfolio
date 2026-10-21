@@ -65,7 +65,7 @@ export default function Education() {
               <p className="text-white font-semibold mb-1">
                 Bachelor of ICT (Hons) : Specialization in Software Technology
               </p>
-              <p className="text-slate-400 text-sm">2022 – 2026 (Expected)</p>
+              <p className="text-slate-300 text-sm">2022 – 2026 </p>
             </div>
 
             <div className="flex flex-col items-start sm:items-end gap-2 shrink-0">

@@ -23,22 +23,28 @@ export default function Home() {
 
   return (
     <>
+      {/* Accessible skip link for keyboard navigation */}
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-xl focus:font-medium focus:outline-none"
+      >
+        Skip to content
+      </a>
+
       <LoadingScreen isLoading={loading} />
 
-      {!loading && (
-        <main suppressHydrationWarning className="bg-[#0a0f1e] min-h-screen">
-          <Navbar />
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Education />
-          <Contact />
-          <Footer />
-          <BackToTop />
-        </main>
-      )}
+      <main suppressHydrationWarning className="bg-[#0a0f1e] min-h-screen">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+        <Footer />
+        <BackToTop />
+      </main>
     </>
   );
 }

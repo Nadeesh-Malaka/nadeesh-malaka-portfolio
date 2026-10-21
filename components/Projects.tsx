@@ -12,19 +12,30 @@ interface Project {
 }
 
 const projects: Project[] = [
+   {
+    title: "UniSchedule",
+ 
+    description:
+      "A smart university scheduling and resource management system combining automated timetable generation, conflict validation, and vehicle demand forecasting.",
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python",
+      "MySQL",
+      "DEAP",
+      "scikit-learn",
+      "Docker",
+      "AWS",
+    ],
+    github: "https://github.com/Nadeesh-Malaka/ML-Based-University-Smart-Scheduler",
+  },
   {
     title: "SkillSwap Platform",
     description:
       "A web platform for seamless skill exchange with intelligent user matching. Features real-time chat, REST APIs, and secure authentication.",
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
+    stack: ["React.js", "Node.js", "Express.js", "MongoDB","GCP"],
     github: "https://github.com/Nadeesh-Malaka/SkillSwap",
-  },
-  {
-    title: "CineStream Movie Discovery Platform",
-    description:
-      "A modern movie streaming UI and discovery app. Features smart search, paginated results, trailers, and personal watchlists using local storage.",
-    stack: ["React.js", "Tailwind CSS", "OMDb API"],
-    github: "https://github.com/Nadeesh-Malaka/CineStream-movie-app",
   },
   {
     title: "QR Based Bus Ticket Reservation System",
@@ -34,18 +45,25 @@ const projects: Project[] = [
     github: "https://github.com/Nadeesh-Malaka/qr-bus-ticket-system",
   },
   {
+    title: "CineStream Movie Discovery Platform",
+    description:
+      "A modern movie streaming UI and discovery app. Features smart search, paginated results, trailers, and personal watchlists using local storage.",
+    stack: ["React.js", "Tailwind CSS", "OMDb API"],
+    github: "https://github.com/Nadeesh-Malaka/CineStream-movie-app",
+  },
+  {
     title: "Knowledge Sharing Platform",
     description:
       "A knowledge-exchange platform with discussion forums, Q&A sessions, and resource libraries for diverse user groups.",
     stack: ["HTML", "CSS", "Laravel", "MySQL"],
     github: "https://github.com/Nadeesh-Malaka/Knowledge_Sharing_platform",
   },
-{
-    title: "Library Management System",
-    description: "A comprehensive web application designed to streamline library operations. Features user authentication, book cataloging, borrowing history tracking, and secure admin controls.",
-    stack: ["Java", "JSP", "MySQL", "HTML", "JavaScript"],
-    github: "https://github.com/Nadeesh-Malaka/Library_Management_System",
-  },
+// {
+//     title: "Library Management System",
+//     description: "A comprehensive web application designed to streamline library operations. Features user authentication, book cataloging, borrowing history tracking, and secure admin controls.",
+//     stack: ["Java", "JSP", "MySQL", "HTML", "JavaScript"],
+//     github: "https://github.com/Nadeesh-Malaka/Library_Management_System",
+//   },
   {
     title: "CalMaster App",
     description: "A sleek, all-in-one mobile calculator application. Features multiple tools including a Simple Calculator, BMI Calculator, and GPA Calculator for quick and accurate calculations.",

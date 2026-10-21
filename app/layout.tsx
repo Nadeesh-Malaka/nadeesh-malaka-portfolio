@@ -4,37 +4,40 @@ import Chatbot from "@/components/Chatbot";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nadeesh Malaka | Full Stack Developer",
+  title: "Nadeesh Malaka | Software Engineer · Full-Stack & AI Solutions",
   description:
-    "Personal portfolio of Nadeesh Malaka, a Full Stack Developer specializing in MERN ,Laravel, and modern web technologies.",
+    "Portfolio of Nadeesh Malaka Chathuranga, a Software Engineer specializing in scalable full-stack web applications (React, Next.js, Node.js, Laravel, Python, FastAPI), cloud deployment (AWS, GCP, Docker), and AI-powered solutions.",
   keywords: [
     "Nadeesh Malaka",
     "Nadeesh Malaka Chathuranga",
+    "Software Engineer",
     "Full Stack Developer",
     "React Developer",
-    "Node.js",
-    "Next.js",
-    "Sri Lanka",
-    "Software Engineer",
+    "Next.js Developer",
+    "Laravel Developer",
+    "Python Developer",
+    "FastAPI",
+    "AI Machine Learning",
+    "Docker AWS GCP",
+    "Sri Lanka Software Engineer",
     "Portfolio",
   ],
   authors: [{ name: "Nadeesh Malaka Chathuranga" }],
   creator: "Nadeesh Malaka Chathuranga",
   openGraph: {
     type: "website",
-    title: "Nadeesh Malaka | Full Stack Developer",
+    title: "Nadeesh Malaka | Software Engineer · Full-Stack & AI Solutions",
     description:
-      "Personal portfolio of Nadeesh Malaka, a Full Stack Developer specializing in MERN ,Laravel, and modern web technologies.",
+      "Explore the portfolio of Nadeesh Malaka, featuring full-stack web applications, AI/ML systems, cloud deployments (AWS, Docker), and professional engineering experience.",
     siteName: "Nadeesh Malaka Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nadeesh Malaka | Full Stack Developer",
+    title: "Nadeesh Malaka | Software Engineer · Full-Stack & AI Solutions",
     description:
-      "Personal portfolio of Nadeesh Malaka, a Full Stack Developer specializing in MERN ,Laravel, and modern web technologies.",
+      "Explore the portfolio of Nadeesh Malaka, featuring full-stack web applications, AI/ML systems, cloud deployments (AWS, Docker), and professional engineering experience.",
   },
   icons: {
-    // Replace the default public/favicon.ico with your NM logo favicon.
     icon: "/favicon.ico",
   },
 };
